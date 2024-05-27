@@ -3,6 +3,11 @@ const router = express.Router()
 const User = require('../models/user');
 const { jwtAuthMiddleware, generateToken } = require('../jwt')
 
+// Define your user-related routes here
+router.get('/', (req, res) => {
+    res.send('User endpoint');
+});
+
 
 //post route to add a user
 router.post('/signup', async (req, res) => {
