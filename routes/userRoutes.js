@@ -20,9 +20,9 @@ router.post('/signup', async (req, res) => {
       id: response.id
     }
 
-    console.log(JSON.stringify(payload));
+    // console.log(JSON.stringify(payload));
     const token = generateToken(payload);
-    console.log('Token', token)
+    // console.log('Token', token)
 
     res.status(200).json({ response: response, token: token });
 
@@ -108,8 +108,5 @@ router.put('/profile/password',jwtAuthMiddleware,  async (req, res) => {
   }
 });
 
-// app.get('/', (req, res) => {
-//   res.send('hello world')
-// })
 
 module.exports = router;

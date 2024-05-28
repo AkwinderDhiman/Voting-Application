@@ -3,8 +3,7 @@ const jwt = require('jsonwebtoken');
 const jwtAuthMiddleware = (req, res, next) => {
     // First check if request headers have authorization or not
     const authorization = req.headers.authorization;
-    console.log(authorization, '--------------------');
-    
+
     if (!authorization) return res.status(401).json({ error: "Token not found" });
 
     // Extract the JWT token from the request headers
@@ -19,7 +18,7 @@ const jwtAuthMiddleware = (req, res, next) => {
         req.user = decoded;
         next();
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(401).json({ error: 'Invalid token' });
     }
 };
